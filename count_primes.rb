@@ -1,14 +1,24 @@
 def count_primes(number)
-    primes = [2]
+    primes = []
+    
+
     if number <= 1
         return prime_count = 0
     end
 
     (2..number).each do |n| 
+        is_prime = true
         for prime in primes do
-            primes.push(n) unless n % prime == 0 && n != prime
-                
+            
+            if n % prime == 0 && n != prime
+                is_prime = false
+                break
+            end
         end
+
+        if is_prime
+            primes.push(n) 
+        end    
     end
     
     puts(primes)
@@ -18,4 +28,4 @@ end
 
 
 
-puts count_primes(12)
+puts count_primes(180)
